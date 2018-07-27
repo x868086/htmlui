@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>layout</title>
+
+    <style scoped>
+      div,ul,li,a{
+        margin:0px;
+        padding:0px;
+      }
+
+      ul,li{
+        list-style:none;
+      }
+
+
+      a{
+        color:#7f8c8d;
+        text-decoration:none;
+        font-family:"Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+        font-size:15px;
+      }
+
+      ul{
+        margin-left:10px;
+        color:#7f8c8d;
+        font-weight:bold;
+        font-family:"Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+        font-size:20px;
+      }
+
+      li{
+        margin-left:20px;
+        margin-top:20px;
+      }
+      .router-link-active{
+        color:#42b983;
+        font-weight:bold;
+        font-size:16px;
+      }
+
+      #app{
+        display:flex;
+        flex-direction:row;
+        align-items:flex-start;
+        border:1px solid #ddd;
+      }
+
+      #nav{
+        width:200px;
+        flex-shrink:0;
+        
+      }
+
+      #view{
+        flex-grow:1;
+        border-left:2px solid #ddd;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="nav">
+        <ul>HTML UI
+          <li>
+            <router-link to="/alert">提示框</router-link>
+          </li>
+          <li>
+            <router-link to="/card">卡片样式</router-link>
+          </li>
+          <li>
+            <router-link to="/button">按钮样式</router-link>
+          </li>
+          <li>
+            <router-link to="/shades">百叶窗折叠菜单</router-link>
+          </li>
+          <li>
+            <router-link to="/navtop">顶部导航菜单1</router-link>
+          </li>
+          <li>
+            <router-link to="/three">顶部导航菜单2</router-link>
+          </li>
+          <li>
+            <router-link to="/loadingcycle">HTML5 加载动画1</router-link>
+          </li>
+          <li>
+            <router-link to="/three">HTML5 加载动画2</router-link>
+          </li>
+          <li>
+            <router-link to="/three">表单</router-link>
+          </li>
+        </ul> 
+      </div>
+
+      <div id="view">
+        <router-view></router-view>
+      </div>
+    </div>
+  </body>
+</html>
