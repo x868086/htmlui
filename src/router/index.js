@@ -6,6 +6,8 @@ import button from '../components/button.vue';
 import shades from '../components/shades.vue';
 import navtop from '../components/navtop.vue';
 import loadingcycle from '../components/loadingcycle.vue';
+import loadingline from '../components/loadingline.vue';
+import form from '../components/form.vue';
 
 Vue.use(Router)
 
@@ -46,6 +48,16 @@ const router=new Router({
       path:'/loadingcycle',
       name:'loadingcycle',
       component:loadingcycle
+    },
+    {
+      path:'/loadingline',
+      name:'loadingline',
+      component:loadingline
+    },
+    {
+      path:'/form',
+      name:'form',
+      component:form
     }
 
   ]

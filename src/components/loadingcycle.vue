@@ -1,6 +1,9 @@
 <template>
-    <div id="loading">
-    </div>
+	<div id="container">
+		<div id="loading">
+		</div>
+	</div>
+
 </template>
 
 
@@ -11,8 +14,11 @@
 </script>
 
 <style scoped>
-    body{
+    #container{
+	width:500px;
+	height:500px;
 	background:lightblue;
+	position:relative;
 }
 
 @keyframes load{
