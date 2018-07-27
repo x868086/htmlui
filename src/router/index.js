@@ -8,6 +8,8 @@ import navtop from '../components/navtop.vue';
 import loadingcycle from '../components/loadingcycle.vue';
 import loadingline from '../components/loadingline.vue';
 import form from '../components/form.vue';
+import navbar from '../components/navbar.vue'
+
 
 Vue.use(Router)
 
@@ -58,6 +60,11 @@ const router=new Router({
       path:'/form',
       name:'form',
       component:form
+    },
+    {
+      path:'/navbar',
+      name:'navbar',
+      component:navbar
     }
 
   ]

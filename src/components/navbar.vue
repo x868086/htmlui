@@ -1,0 +1,210 @@
+<template>
+        <div id="container">
+        <div class="navlist">
+            <ul class="main-menu">
+            <li><a href="#">查询</a>
+                <div class="flag"></div>
+                <ul class="sub-menu">
+                <li><a href="#">实时话费</a></li>
+                <li>|</li>
+                <li><a href="#">账户余额</a></li>
+                <li>|</li>
+                <li><a href="#">历史账单</a></li>
+                <li>|</li>
+                <li><a href="#">历史欠费</a></li>
+                <li>|</li>
+                <li><a href="#">通话详单</a></li>
+                <li>|</li>
+                </ul>
+            </li>
+            <li><a href="#">办理</a>
+                <div class="flag"></div>
+                <ul class="sub-menu">
+                <li><a href="#">流量包订购</a></li>
+                <li>|</li>
+                <li><a href="#">话费代扣</a></li>
+                <li>|</li>
+                <li><a href="#">王卡会员</a></li>
+                <li>|</li>
+                <li><a href="#">开通4G网络</a></li>
+                <li>|</li>
+                </ul>
+            </li>
+            <li><a href="#">缴费</a>
+                <div class="flag"></div>
+                <ul class="sub-menu">
+                <li><a href="#">自助交费</a></li>
+                <li>|</li>
+                <li><a href="#">单位合作</a></li>
+                <li>|</li>
+                </ul>
+            </li>
+            <li class="fix"><a href="#">|</a></li>
+            <li><a href="#">号码</a>
+                <div class="flag"></div>
+                <ul class="sub-menu">
+                <li><a href="#">186</a></li>
+                <li>|</li>
+                <li><a href="#">166</a></li>
+                <li>|</li>
+                <li><a href="#">155</a></li>
+                <li>|</li>
+                </ul>
+            </li>
+            <li class="fix"><a href="#">|</a></li>
+            <li><a href="#">套餐</a>
+                <div class="flag"></div>
+                        <ul class="sub-menu">
+                <li><a href="#">钉钉卡</a></li>
+                <li>|</li>
+                <li><a href="#">腾讯王卡</a></li>
+                <li>|</li>
+                <li><a href="#">冰激凌</a></li>
+                <li>|</li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+        </div>
+</template>
+
+
+
+<script>
+    import $ from 'jquery'; //导入第三方js库
+
+    var init=(
+        function(){
+            function render(){
+                $(".main-menu").on("click","li",function(event){
+                var $li=$(event.currentTarget)
+                console.log($li.siblings())
+                if($li.parent().attr("class")==="main-menu"){
+                    $li.children("a").addClass("main-active")
+                    $li.children(".flag,.sub-menu").show()
+                    
+                    $li.siblings().children("a").removeClass("main-active")
+                    $li.siblings().children(".flag,.sub-menu").hide()
+                }
+                })
+            }
+
+            return{
+                render:render
+            }
+        }
+    )()
+
+
+
+export default {
+    methods:{
+        load:function(){
+            init.render()
+        }
+    },
+    mounted:function(){
+        this.load()
+    }
+}
+</script>
+
+
+
+<style scoped>
+    div,ul,li,a{
+    margin:0;
+    padding:0;
+    }
+
+    ul,li{
+    list-style:none;
+    }
+
+    a{
+    text-decoration:none;
+    color:black;
+    }
+
+    #container{
+    position:absolute;
+    left:50%;
+    top:20%;
+    transform:translate(-50%,-50%);
+    
+    }
+
+    .main-menu{
+    font-size:0px;
+    }
+
+    .main-menu>li{
+    position:relative;
+    display:inline-block;
+    border-bottom:1px solid #ccc;
+    font-size:16px;
+    padding:20px 20px;
+    }
+
+    .main-menu>li>a{
+    padding:5px 10px;
+    border-radius:30px;
+    font-weight:bold;
+    }
+
+    .flag{
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-top:10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid #ccc;
+    position:absolute;
+    left:50%;
+    transform:translate(-50%,0%);
+    display:none;
+    }
+
+    .flag:after{
+    content:"";
+    display:block;
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid white;
+    border-top:10px solid transparent;
+    position:absolute;
+    left:50%;
+    transform:translate(-50%,-40%);
+    }
+
+    .main-active{
+    background:orange;
+    color:white;
+    }
+
+
+    .sub-menu{
+    position:absolute;
+    top:100%;
+    width:400px;
+    font-size:0px;
+    display:none;
+    }
+    .sub-menu>li{
+    display:inline-block;
+    font-size:12px;
+    padding:10px 10px;
+    }
+    .sub-menu>li>a:hover{
+    color:orange;
+    }
+
+    .fix{
+    position:relative;
+    bottom:-1px;
+    }
+</style>
+
+

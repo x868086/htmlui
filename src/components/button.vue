@@ -211,6 +211,7 @@
     background:#2878E5;
     margin-left:auto;
     margin-right:auto;
+    margin-bottom:15px;
     cursor:pointer;
     border-radius:9px;
     box-shadow:0px 9px 1px #1E4766;

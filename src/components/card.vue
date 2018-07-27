@@ -66,7 +66,7 @@ div,p,a,h3,h4{
   width:900px;
 	background:#333;
 	position:absolute;
-	top:50%;
+	top:40%;
 	left:50%;
 	transform:translate(-50%,-50%);
 }

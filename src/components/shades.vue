@@ -45,8 +45,6 @@
     </div>
 </template>
 
-<!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-
 
 <script>
 // $(document).ready(function(){
@@ -62,25 +60,40 @@
 // 	});
 // });
 import $ from 'jquery';
-$(document).ready(function(){
-    // $("li").on("click",function(event){
-    $(".nav-list").on("click","li>a",function(event){
-        // console.log(event)
-        // event.preventDefault()
-    var $activeNode=$(event.target)
-    if($activeNode.hasClass("title")){
-        $activeNode.addClass("active")
-                    .parent().siblings().find("a")
-                .removeClass("active")
-    }
-    $activeNode.siblings().slideToggle(800);
-    $activeNode.parent().siblings().find(".nav-sub").hide(800);
-});
+var init=(
+    function(){
+        function render(){
+                $(document).ready(function(){
+                    $(".nav-list").on("click","li>a",function(event){
+                    var $activeNode=$(event.target)
+                    if($activeNode.hasClass("title")){
+                        $activeNode.addClass("active")
+                                    .parent().siblings().find("a")
+                                .removeClass("active")
+                    }
+                    $activeNode.siblings().slideToggle(800);
+                    $activeNode.parent().siblings().find(".nav-sub").hide(800);
+                    })
 
-});
+                })
+        }
+            return {
+                render:render
+            }
+    }
+)()
+
 
     export default{
-
+        methods:{
+            load:function(){
+                init.render()
+            }
+        },
+        //操作DOM必须在mouted生命周期中进行
+        mounted:function(){
+            this.load()
+        }
     }
 </script>
 
